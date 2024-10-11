@@ -2,8 +2,12 @@
 include 'config/db.php';
 include 'includes/header.php';
 
-// Fetch winners from the database
-$sql = "SELECT * FROM winners ORDER BY created_at DESC";
+// Fetch winners from the database with corresponding event names
+$sql = "SELECT winners.*, events.title 
+        FROM winners 
+        JOIN events ON winners.event_id = events.id 
+        ORDER BY winners.created_at DESC";
+
 $result = $conn->query($sql);
 ?>
 
@@ -13,9 +17,9 @@ $result = $conn->query($sql);
         <ul class="list-group">
             <?php while($row = $result->fetch_assoc()): ?>
                 <li class="list-group-item">
-                    <h5><?php echo $row['name']; ?></h5>
-                    <p>Event: <?php echo $row['event']; ?></p>
-                    <p>Category: <?php echo $row['category']; ?></p>
+                    <h5><?php echo $row['winner_name']; ?></h5>
+                    <p>Event: <?php echo $row['title']; ?></p>
+                    <p>Position: <?php echo $row['position']; ?></p>
                     <small>Created At: <?php echo date('F j, Y', strtotime($row['created_at'])); ?></small>
                 </li>
             <?php endwhile; ?>

@@ -14,10 +14,11 @@ $result = $conn->query($sql);
             <?php while($row = $result->fetch_assoc()): ?>
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <img src="<?php echo $row['image_path']; ?>" class="card-img-top" alt="<?php echo $row['description']; ?>">
+                        <!-- Updated image path to use the correct column from the database -->
+                        <img src="uploads/<?php echo htmlspecialchars($row['image_url']); ?>" class="card-img-top" alt="<?php echo htmlspecialchars($row['title']); ?>">
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo $row['title']; ?></h5>
-                            <p class="card-text"><?php echo $row['description']; ?></p>
+                            <h5 class="card-title"><?php echo htmlspecialchars($row['title']); ?></h5>
+                            <!-- <p class="card-text"><?php //echo htmlspecialchars($row['description']); ?></p> -->
                             <small>Uploaded At: <?php echo date('F j, Y', strtotime($row['created_at'])); ?></small>
                         </div>
                     </div>

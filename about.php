@@ -15,7 +15,7 @@ $result = $conn->query($sql);
         <ul class="list-group">
             <?php while($row = $result->fetch_assoc()): ?>
                 <li class="list-group-item">
-                    <h5><?php echo $row['name']; ?> - <?php echo $row['position']; ?></h5>
+                    <h5><?php echo $row['name']; ?> - <?php echo $row['role']; ?></h5>
                     <p>Email: <?php echo $row['email']; ?></p>
                 </li>
             <?php endwhile; ?>

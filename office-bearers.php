@@ -15,7 +15,7 @@ $result = $conn->query($sql);
                 <li class="list-group-item">
                     <h5><?php echo $row['name']; ?> - <span class="text-muted"><?php echo $row['role']; ?></span></h5>
                     <p>Email: <?php echo $row['email']; ?></p>
-                    <p>Contact: <?php echo $row['contact_number']; ?></p>
+                    <!-- <p>Contact: <?php //echo $row['contact_number']; ?></p> -->
                 </li>
             <?php endwhile; ?>
         </ul>
