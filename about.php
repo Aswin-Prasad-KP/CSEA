@@ -1,21 +1,28 @@
-<!-- about.php -->
-<?php include 'includes/header.php'; ?>
+<?php
+include 'config/db.php';
+include 'includes/header.php';
 
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-md-6">
-            <h2>About CSEA</h2>
-            <p>The Computer Science and Engineering Association (CSEA) is a dynamic student organization dedicated to nurturing technical talent and promoting professional development in the field of computer science and engineering.</p>
-            <p>We host regular events, including hackathons, workshops, and seminars, providing our members with opportunities to learn and collaborate.</p>
-            <ul class="list-unstyled">
-                <li><strong>Vision:</strong> Fostering innovation and collaboration.</li>
-                <li><strong>Mission:</strong> Bridging academia with industry.</li>
-            </ul>
-        </div>
-        <div class="col-md-6">
-            <img src="img/about-us.jpg" class="img-fluid rounded" alt="CSEA Members">
-        </div>
-    </div>
+// Fetch office bearers
+$sql = "SELECT * FROM office_bearers";
+$result = $conn->query($sql);
+?>
+
+<div class="container">
+    <h2 class="mt-4">About CSEA</h2>
+    <p>CSEA is dedicated to fostering a vibrant community of computer science students.</p>
+    <h3>Office Bearers</h3>
+    <?php if ($result->num_rows > 0): ?>
+        <ul class="list-group">
+            <?php while($row = $result->fetch_assoc()): ?>
+                <li class="list-group-item">
+                    <h5><?php echo $row['name']; ?> - <?php echo $row['position']; ?></h5>
+                    <p>Email: <?php echo $row['email']; ?></p>
+                </li>
+            <?php endwhile; ?>
+        </ul>
+    <?php else: ?>
+        <div class="alert alert-warning" role="alert">No office bearers listed.</div>
+    <?php endif; ?>
 </div>
 
 <?php include 'includes/footer.php'; ?>
