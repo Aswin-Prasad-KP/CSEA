@@ -3,18 +3,22 @@
 Instructions:-
 
 Provided git need to be downloaded in your local machine using
+
     1. "Download Zip"
     2. git clone https://github.com/Aswin-Prasad-KP/CSEA.git main
+
 
 Note:-
     This website uses Bootstrap CDN. So, ensure the internet is turned on.
 
 Software Requirements:-
+
     1. Wamp (or) Xampp for Windows
     2. MAMP for Mac
     3. Lampp for Linux
 
 Setup Instruction:-
+
     1. Locate the download folder "CSEA-main" inside the "/your location to xampp/htdocs/"
     2. Turn on the server using the "start" button in the xampp control panel
         2.1. Turn On both Apache and MySQL
@@ -24,12 +28,14 @@ Setup Instruction:-
     6. Open the browser and type "http://localhost/CSEA-main"
 
 Software Description:-
+
     1. This Software (Website) is designed for both Normal User (Student) and also for OBs (Office Bearers)
         1.1. OBs have seperate Webpage you can access it with "http://localhost/CSEA-main/admin/login.php"
         1.2. Use Username = "tester" , Password = "tester@123" (Registraton is not added for security purpose)
         1.3. Add Admin will be added for a Default Admin later (Future Work)
 
 Software Functionality:-
+
     1. Normal User (Student / Participant)
         1.1. Home (contains Upcomming Events)
         1.2. About (contains Office Bearers with simple description of the CSEA)
